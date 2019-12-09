@@ -1,0 +1,22 @@
+--- src/runtime.orig	2019-12-07 21:31:40.539640124 -0600
++++ ../src/runtime.c	2019-12-07 21:34:33.526989742 -0600
+@@ -49,10 +49,6 @@
+ #include "elf.h"
+ #include "getsection.h"
+ 
+-#ifndef ENABLE_DLOPEN
+-#define ENABLE_DLOPEN
+-#endif
+-#include "squashfuse_dlopen.h"
+ #include "appimage/appimage.h"
+ 
+ #include <fnmatch.h>
+@@ -488,8 +484,6 @@
+         exit(1);
+     }
+ 
+-    LOAD_LIBRARY; /* exit if libfuse is missing */
+-
+     int dir_fd, res;
+ 
+     char mount_dir[64];

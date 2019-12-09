@@ -1,0 +1,18 @@
+--- src/appimagetool.orgi	2019-12-07 21:20:24.259269182 -0600
++++ ../src/appimagetool.c	2019-12-07 21:20:39.674278566 -0600
+@@ -168,15 +168,6 @@
+         args[i++] = "-root-owned";
+         args[i++] = "-noappend";
+ 
+-        if (use_xz) {
+-            // https://jonathancarter.org/2015/04/06/squashfs-performance-testing/ says:
+-            // improved performance by using a 16384 block size with a sacrifice of around 3% more squashfs image space
+-            args[i++] = "-Xdict-size";
+-            args[i++] = "100%";
+-            args[i++] = "-b";
+-            args[i++] = "16384";
+-        }
+-
+         // check if ignore file exists and use it if possible
+         if (access(APPIMAGEIGNORE, F_OK) >= 0) {
+             printf("Including %s", APPIMAGEIGNORE);

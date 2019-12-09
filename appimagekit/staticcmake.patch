@@ -1,0 +1,26 @@
+--- CMakeLists.txt	2019-12-07 06:18:24.269199756 -0600
++++ ../CMakeLists.txt	2019-12-06 20:24:58.930738312 -0600
+@@ -72,6 +72,23 @@
+ include(cmake/dependencies.cmake)
+ 
+ 
++##
++# Some Stuff
++##
++
++
++set(BUILD_SHARED_LIBS OFF)
++set(CMAKE_FIND_LIBRARY_SUFFIXES .a ${CMAKE_FIND_LIBRARY_SUFFIXES})
++set(LINK_SEARCH_START_STATIC TRUE)
++set(LINK_SEARCH_END_STATIC TRUE)
++
++set(SHARED_LIBS OFF)
++set(STATIC_LIBS ON)
++
++set(CMAKE_INSTALL_RPATH_USE_LINK_PATH TRUE)
++
++set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -static")
++
+ ################
+ # Source files #
+ ################
